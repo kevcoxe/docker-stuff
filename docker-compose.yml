@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+
+  product_api:
+    build: ./product_api
+    container_name: product_api
+    restart: always
+    environment:
+      - APP_NAME=ProductApi
+    expose:
+      - 8000
+
+  costomer_api:
+    build: ./costomer_api
+    container_name: costomer_api
+    restart: always
+    environment:
+      - APP_NAME=CostomerApi
+    expose:
+      - 8000
+
+  nginx-react:
+    build: ./nginx-react
+    container_name: nginx-react
+    restart: always
+    ports:
+      - "80:80"
